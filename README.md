@@ -55,6 +55,7 @@ This repository was forked from [Eddie Mitchell's Getting Started with Elastic S
    - Retrieve CA certificate from the cluster: `docker cp es-cluster-es01-1:/usr/share/elasticsearch/config/certs/ca/ca.crt /tmp/.`
    - Retrieve fingerprint of the CA certificate: `openssl x509 -fingerprint -sha256 -noout -in /tmp/ca.crt | awk -F"=" {' print $2 '} | sed s/://g`
    - Print CA certificate: `cat /tmp/ca.crt`
+   - Set the "Outputs" host to `https://IP:8200`
    - Update the "Elasticsearch CA trusted fingerprint" field with the obtained fingerprint.
    - Add the certificate text to the "Advanced YAML configuration" field in Fleet Settings. Begin with:
 
@@ -65,6 +66,7 @@ This repository was forked from [Eddie Mitchell's Getting Started with Elastic S
      ```
 
      Place the printed CA certificate on the next line, ensuring correct indentation.
+   - Add fleet server, with `https://IP:8220`.
 
 ## Agent Setup
 
